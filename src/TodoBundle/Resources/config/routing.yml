@@ -1,0 +1,7 @@
+todo_homepage:
+    path: /
+    defaults: { _controller: TodoBundle:Default:index }
+
+todo_signin:
+    path: /signin/
+    defaults: { _controller: TodoBundle:Default:signin }

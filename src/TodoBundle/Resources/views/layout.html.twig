@@ -1,0 +1,38 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Todo{% endblock %}
+
+{% block icon %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link href="{{ asset('css/base.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/header.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/footer.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="header headfoot">
+        <p class="logo"><a href="{{ path('todo_homepage') }}">Todo 0.1.0</a></p>
+        <p class="user_actions sign_up">
+            <a href="#">Sign up</a>
+        </p>
+        <p class="user_actions sign_in">
+            <a href="{{ path('todo_signin') }}">Sign in</a>
+        </p>
+    </div>
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <div class="footer headfoot">
+        <p>footer</p>
+    </div>
+{% endblock %}
+

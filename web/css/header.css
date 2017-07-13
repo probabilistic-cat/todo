@@ -1,0 +1,35 @@
+.header {
+    float: left;
+    width: 100%;
+    height: 60px;
+    /*border-bottom: 1px solid #D5DDDF;*/
+    /*background-color: #2B2B2B;*/
+    /*box-shadow: 0 2px 5px rgba(0,0,0,0.3);*/
+}
+
+.header p.logo {
+    float: left;
+    margin: 15px 0 0 10px;
+}
+
+.header p.logo a {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 25px;
+    color: #f6f6f6;
+    text-decoration: none;
+}
+
+.header p.user_actions {
+    float: right;
+    margin: 20px 50px 0 0;
+    font-size: 16px;
+}
+
+.header p.user_actions a {
+    color: #f6f6f6;
+    text-decoration: none;
+}
+
+.header p.user_actions a:hover {
+    text-decoration: underline;
+}
