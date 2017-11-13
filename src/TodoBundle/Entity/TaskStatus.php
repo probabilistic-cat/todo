@@ -10,7 +10,7 @@ class TaskStatus
     const TODO = 'todo';
     const INPROGRESS = 'in_progress';
     const COMPLETED = 'completed';
-    
+
     /**
      * @var string
      */
@@ -27,4 +27,3 @@ class TaskStatus
         return $this->taskStatusCode;
     }
 }
-

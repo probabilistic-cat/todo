@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    session.attribute_bag.class: Symfony\Component\HttpFoundation\Session\Attribute\NamespacedAttributeBag
 
 framework:
     #esi:             ~

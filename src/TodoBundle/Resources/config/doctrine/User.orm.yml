@@ -37,11 +37,17 @@ TodoBundle\Entity\User:
             options:
                 fixed: false
             column: user_mail
+        userActive:
+            type: boolean
+            nullable: false
+            options:
+                default: '1'
+            column: user_active
         created:
             type: datetime
             nullable: false
             options:
-                default: '1999-12-31 21:00:00'
+                default: '1999-12-31 20:00:00'
         modified:
             type: datetime
             nullable: true

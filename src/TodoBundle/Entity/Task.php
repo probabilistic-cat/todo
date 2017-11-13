@@ -284,4 +284,3 @@ class Task
         return $this->taskStatusCode;
     }
 }
-

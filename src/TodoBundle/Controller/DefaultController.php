@@ -3,21 +3,22 @@
 namespace TodoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-//index
 use TodoBundle\Entity\TaskStatus as TaskStatus;
-
-// signin
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\{Request, Response};
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    /**
+     * Index action
+     * @return Response
+     */
+    public function indexAction(): Response
     {
-        $tasksTodo = $tasksInprogress = $tasksCompleted = array();
-        
-        $tasks = $this->getDoctrine()->getRepository('TodoBundle:Task')->findAll();
+        $tasksTodo = array();
+        $tasksInprogress = array();
+        $tasksCompleted = array();
+
+        $tasks = $this->getDoctrine()->getRepository("TodoBundle:Task")->findAll();
         foreach ($tasks as $task) {
             $taskStatusCode = $task->getTaskStatusCode()->getTaskStatusCode();
             if ($taskStatusCode == TaskStatus::TODO) {
@@ -28,29 +29,18 @@ class DefaultController extends Controller
                 $tasksCompleted[] = $task;
             }
         }
-        
-        return $this->render('TodoBundle:Default:index.html.twig', array(
-            'tasksTodo' => $tasksTodo,
-            'tasksInprogress' => $tasksInprogress,
-            'tasksCompleted' => $tasksCompleted
+
+        return $this->render("TodoBundle:Default:index.html.twig", array(
+            "tasksTodo" => $tasksTodo,
+            "tasksInprogress" => $tasksInprogress,
+            "tasksCompleted" => $tasksCompleted
         ));
     }
-    
-    public function signinAction(Request $request) 
+
+    public function adminAction(): Response
     {
-        //$getUsername = $request->request->get('username');
-        $getPassword = $request->request->get('password');
-        $getMail = $request->request->get('mail');
-        
-        if (/*$getUsername == "" ||*/ $getMail == "" || $getPassword == "") {
-            //return $this->render('TodoBundle:Default:signin.html.twig', array());
-        } else {
-            $em = $this->getDoctrine()->getManager();
-            //$user = $em->getRepository('TodoBundle:User')->findOneBy($criteria);
-            
-            
-        }
-        
-        return $this->render('TodoBundle:Default:signin.html.twig', array());
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!1');
+
+        return new Response('<html><body>Admin page!</body></html>');
     }
 }
