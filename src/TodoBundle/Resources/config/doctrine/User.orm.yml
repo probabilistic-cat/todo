@@ -41,14 +41,16 @@ TodoBundle\Entity\User:
             type: boolean
             nullable: false
             options:
-                default: '1'
+                default: '0'
             column: user_active
         created:
             type: datetime
             nullable: false
             options:
-                default: '1999-12-31 20:00:00'
+                default: '1999-12-31 21:00:00'
         modified:
             type: datetime
             nullable: true
+            options:
+                default: CURRENT_TIMESTAMP
     lifecycleCallbacks: {  }

@@ -4,7 +4,8 @@ namespace TodoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use TodoBundle\Entity\TaskStatus as TaskStatus;
-use Symfony\Component\HttpFoundation\{Request, Response};
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {

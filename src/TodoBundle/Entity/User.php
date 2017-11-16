@@ -25,12 +25,17 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     /**
      * @var string
      */
+    private $userPlainPassword;
+
+    /**
+     * @var string
+     */
     private $userMail;
 
     /**
      * @var boolean
      */
-    private $userActive;
+    private $userActive = 0;
 
     /**
      * @var \DateTime
@@ -41,6 +46,14 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      * @var \DateTime
      */
     private $modified;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->created = new \DateTime($this->created);
+    }
 
     /**
      * Get userId
@@ -98,6 +111,30 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     public function getUserPassword()
     {
         return $this->userPassword;
+    }
+
+    /**
+     * Set userPlainPassword
+     *
+     * @param string $userPlainPassword
+     *
+     * @return User
+     */
+    public function setUserPlainPassword($userPlainPassword)
+    {
+        $this->userPlainPassword = $userPlainPassword;
+
+        return $this;
+    }
+
+    /**
+     * Get userPlainPassword
+     *
+     * @return string
+     */
+    public function getUserPlainPassword()
+    {
+        return $this->userPlainPassword;
     }
 
     /**
